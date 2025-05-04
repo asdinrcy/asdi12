@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\BukuController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -13,7 +13,7 @@ Route::post('/register', [AuthController::class, 'Register'])->name('register');
 Route::post('/login', [AuthController::class, 'Login'])->name('login');
 
 Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('/product', ProductController::class);
+    Route::apiResource('/buku', BukuController::class);
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
-    Route::get('/me', [AuthController::class, 'me'])->name('me');
+    Route::post('/me', [AuthController::class, 'me'])->name('me');
 });
